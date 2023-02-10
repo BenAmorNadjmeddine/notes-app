@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:notes_app/Shared/Style/colors.dart';
+
+TextStyle lightDisplayLarge = TextStyle(fontSize: 32.0, color: scaffoldBackgroundDarkColor, fontWeight: FontWeight.w700);
+TextStyle lightDisplayMedium = TextStyle(fontSize: 31.0, color: scaffoldBackgroundDarkColor, fontWeight: FontWeight.w700);
+TextStyle lightDisplaySmall = TextStyle(fontSize: 30.0, color: scaffoldBackgroundDarkColor, fontWeight: FontWeight.w700);
+TextStyle lightHeadlineLarge = TextStyle(fontSize: 27.0, color: scaffoldBackgroundDarkColor, fontWeight: FontWeight.w500);
+TextStyle lightHeadlineMedium = TextStyle(fontSize: 26.0, color: scaffoldBackgroundDarkColor, fontWeight: FontWeight.w500);
+TextStyle lightHeadlineSmall = TextStyle(fontSize: 25.0, color: scaffoldBackgroundDarkColor, fontWeight: FontWeight.w500);
+TextStyle lightTitleLarge = TextStyle(fontSize: 22.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightTitleMedium = TextStyle(fontSize: 21.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightTitleSmall = TextStyle(fontSize: 20.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightBodyLarge = TextStyle(fontSize: 17.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightBodyMedium = TextStyle(fontSize: 16.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightBodySmall = TextStyle(fontSize: 15.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightLabelLarge = TextStyle(fontSize: 12.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightLabelMedium = TextStyle(fontSize: 11.0, color: scaffoldBackgroundDarkColor);
+TextStyle lightLabelSmall = TextStyle(fontSize: 10.0, color: scaffoldBackgroundDarkColor);
+
+TextStyle darkDisplayLarge = TextStyle(fontSize: 32.0, color: scaffoldBackgroundLightColor, fontWeight: FontWeight.w700);
+TextStyle darkDisplayMedium = TextStyle(fontSize: 31.0, color: scaffoldBackgroundLightColor, fontWeight: FontWeight.w700);
+TextStyle darkDisplaySmall = TextStyle(fontSize: 30.0, color: scaffoldBackgroundLightColor, fontWeight: FontWeight.w700);
+TextStyle darkHeadlineLarge = TextStyle(fontSize: 27.0, color: scaffoldBackgroundLightColor, fontWeight: FontWeight.w500);
+TextStyle darkHeadlineMedium = TextStyle(fontSize: 26.0, color: scaffoldBackgroundLightColor, fontWeight: FontWeight.w500);
+TextStyle darkHeadlineSmall = TextStyle(fontSize: 25.0, color: scaffoldBackgroundLightColor, fontWeight: FontWeight.w500);
+TextStyle darkTitleLarge = TextStyle(fontSize: 22.0, color: scaffoldBackgroundLightColor);
+TextStyle darkTitleMedium = TextStyle(fontSize: 21.0, color: scaffoldBackgroundLightColor);
+TextStyle darkTitleSmall = TextStyle(fontSize: 20.0, color: scaffoldBackgroundLightColor);
+TextStyle darkBodyLarge = TextStyle(fontSize: 17.0, color: scaffoldBackgroundLightColor);
+TextStyle darkBodyMedium = TextStyle(fontSize: 16.0, color: scaffoldBackgroundLightColor);
+TextStyle darkBodySmall = TextStyle(fontSize: 15.0, color: scaffoldBackgroundLightColor);
+TextStyle darkLabelLarge = TextStyle(fontSize: 12.0, color: scaffoldBackgroundLightColor);
+TextStyle darkLabelMedium = TextStyle(fontSize: 11.0, color: scaffoldBackgroundLightColor);
+TextStyle darkLabelSmall = TextStyle(fontSize: 10.0, color: scaffoldBackgroundLightColor);
