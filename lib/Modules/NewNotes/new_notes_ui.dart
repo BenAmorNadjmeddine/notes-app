@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:notes_app/Modules/ShowNote/show_note_ui.dart';
 import 'package:notes_app/Modules/TakeNote/take_note_ui.dart';
 import 'package:notes_app/Shared/Components/ReusableWidgets/empty_page_message.dart';
 import 'package:notes_app/Shared/Components/ReusableWidgets/fab.dart';
-import 'package:notes_app/Shared/Components/ReusableWidgets/note_item.dart';
 import 'package:notes_app/Shared/Components/components.dart';
 import 'package:notes_app/Shared/Cubit/cubit.dart';
 import 'package:notes_app/Shared/Cubit/states.dart';
