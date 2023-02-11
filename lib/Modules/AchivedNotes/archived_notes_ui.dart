@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:notes_app/Modules/AchivedNotes/UIComponents/archived_notes.dart';
 import 'package:notes_app/Modules/ShowNote/show_note_ui.dart';
+import 'package:notes_app/Modules/TakeNote/take_note_ui.dart';
 import 'package:notes_app/Shared/Components/ReusableWidgets/empty_page_message.dart';
+import 'package:notes_app/Shared/Components/ReusableWidgets/fab.dart';
 import 'package:notes_app/Shared/Components/ReusableWidgets/note_item.dart';
 import 'package:notes_app/Shared/Components/components.dart';
 import 'package:notes_app/Shared/Cubit/cubit.dart';
@@ -26,6 +28,13 @@ class ArchivedNotesUI extends StatelessWidget {
             cubit: cubit,
             icon: Icons.notes,
             message: "You don't have archived notes yet.",
+          ),
+          floatingActionButton: FAB(
+            onPressed: () {
+              navigateTo(context, const TakeNoteUI());
+            },
+            text: "Add Note",
+            icon: Icons.edit,
           ),
         );
       },
