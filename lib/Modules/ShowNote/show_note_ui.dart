@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:notes_app/Shared/Components/ReusableWidgets/color_picker.dart';
-import 'package:notes_app/Shared/Components/ReusableWidgets/my_text_field.dart';
+import 'package:intl/intl.dart';
+import 'package:notes_app/Shared/Components/ReusableWidgets/fab.dart';
 import 'package:notes_app/Shared/Components/components.dart';
 import 'package:notes_app/Shared/Cubit/cubit.dart';
 import 'package:notes_app/Shared/Cubit/states.dart';
-import 'package:notes_app/Shared/Style/colors.dart';
-import 'package:intl/intl.dart';
+
+import 'UIComponents/notes_details.dart';
 
 class ShowNoteUI extends StatelessWidget {
   const ShowNoteUI({
@@ -36,8 +36,30 @@ class ShowNoteUI extends StatelessWidget {
         var cubit = AppCubit.get(context);
         return Scaffold(
           appBar: buildAppBar(cubit, context),
-          body: buildNoteDetails(width, cubit, context, date, time),
-          floatingActionButton: buildFAB(cubit, context, editedDate, editedTime),
+          body: NoteDetails(width: width, cubit: cubit, titleController: titleController, date: date, time: time, bodyController: bodyController),
+          floatingActionButton: FAB(
+            onPressed: () {
+              if (bodyController.text.isEmpty && bodyController.text.isEmpty) {
+                showToast(
+                  text: "Note title or body should not be empty!",
+                  state: ToastStates.error,
+                  gravity: ToastGravity.CENTER,
+                );
+              } else {
+                cubit.updateDBEditNote(
+                  id: id,
+                  title: titleController.text,
+                  body: bodyController.text,
+                  date: editedDate,
+                  time: editedTime,
+                  color: cubit.currentColorIndex,
+                );
+                cubit.popAndResetAll(context);
+              }
+            },
+            text: "Save",
+            icon: Icons.save,
+          ),
         );
       },
     );
@@ -104,83 +126,5 @@ class ShowNoteUI extends StatelessWidget {
     );
   }
 
-  Padding buildNoteDetails(double width, AppCubit cubit, BuildContext context, String date, String time) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: width,
-            height: 45.0,
-            child: Center(
-              child: ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: noteColors.length,
-                itemBuilder: (context, index) => ColorPicker(
-                  onTap: () {
-                    cubit.changeSelectedColor(index);
-                  },
-                  colorIndex: index,
-                ),
-                separatorBuilder: (BuildContext context, int index) => const SizedBox(width: 15.0),
-              ),
-            ),
-          ),
-          const SizedBox(height: 20.0),
-          MyTextField(
-            controller: titleController,
-            hintText: "Title",
-            style: Theme.of(context).textTheme.headlineSmall!,
-            hintStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.grey),
-          ),
-          const SizedBox(height: 10.0),
-          Text(
-            "$date | $time",
-            style: Theme.of(context).textTheme.labelLarge!.copyWith(color: Colors.grey, wordSpacing: 3.0),
-          ),
-          const SizedBox(height: 10.0),
-          Divider(
-            color: Colors.grey.shade500,
-            height: 20.0,
-          ),
-          const SizedBox(height: 10.0),
-          MyTextField(
-            controller: bodyController,
-            style: Theme.of(context).textTheme.bodyMedium!,
-            hintText: "Start typing",
-            hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.grey),
-          ),
-        ],
-      ),
-    );
-  }
-
-  FloatingActionButton buildFAB(AppCubit cubit, BuildContext context, String editedDate, String editedTime) {
-    return FloatingActionButton.extended(
-      onPressed: () {
-        if (bodyController.text.isEmpty && bodyController.text.isEmpty) {
-          showToast(
-            text: "Note title or body should not be empty!",
-            state: ToastStates.error,
-            gravity: ToastGravity.CENTER,
-          );
-        } else {
-          cubit.updateDBEditNote(
-            id: id,
-            title: titleController.text,
-            body: bodyController.text,
-            date: editedDate,
-            time: editedTime,
-            color: cubit.currentColorIndex,
-          );
-          cubit.popAndResetAll(context);
-        }
-      },
-      label: const Text("Save"),
-      icon: const Icon(Icons.save),
-    );
-  }
 }
+

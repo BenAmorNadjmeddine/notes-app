@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Shared/Cubit/cubit.dart';
 import 'package:notes_app/Shared/Style/colors.dart';
 
 class NoteItem extends StatelessWidget {
